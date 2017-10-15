@@ -2,11 +2,8 @@ package cn.edu.gdmec.android.mobileguard.m1home;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,8 +11,11 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetUpPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
@@ -23,7 +23,7 @@ import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
 public class HomeActivity extends AppCompatActivity {
     private GridView gv_home;
     private long mExitTime;
-    //存储手机防盗密码的sp
+    /**存储手机防盗密码的sp  */
     private SharedPreferences msharedPreferences;
 
     @Override
@@ -31,76 +31,56 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
-        msharedPreferences = getPreferences("config", MODE_PRIVATE);
+        msharedPreferences = getSharedPreferences("config",MODE_PRIVATE);
         gv_home = (GridView) findViewById(R.id.gv_home);
         gv_home.setAdapter(new HomeAdapter(HomeActivity.this));
         gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
                     case 0: //点击手机防盗
-                        if (isSetUpPassword()) {
+                        if(isSetUpPassword()){
                             //弹出输入密码对话框
-                            showInterPswdDialog();
-                        } else {
-                            //弹出设置密码框
-                            showSetUpPswdDialog();
+                            showInterPwdDialog();
+                        }else{
+                            //弹出设置密码对话框
+                            showSetUpPwdDialog();
                         }
                         break;
                 }
             }
         });
+
     }
 
-    public void startActivity(Class<?> cls) {
-        Intent intent = new Intent(HomeActivity.this, cls);
+    public void startActivity(Class<?> cls){
+        Intent intent = new Intent(HomeActivity.this,cls);
         startActivity(intent);
     }
 
     @Override
-
-    public boolean onKeyDown(int keyCode, keyEvent event) {
-        if (KeyCode == KeyEvent.KEYCODE_BACK) {
-            if ((System.currentTimeMillis() - mExitTime) < 2000) {
-                System.exit(0);
-            } else {
-                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-                mExitTime = System.currentTimeMillis();
-            }
-            return true;
-        }
-        return super.onKeyDown(KeyCode, event);
-    }
-
-
-
-
-    private void showInterPswdDialog() {
-    }
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if ((System.currentTimeMillis() - mExitTime) < 2000) {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            if((System.currentTimeMillis()-mExitTime)<2000)
+            {
                 System.exit(0);
-            } else {
+            }else{
                 Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_LONG).show();
                 mExitTime = System.currentTimeMillis();
             }
             return true;
         }
         return super.onKeyDown(keyCode, event);
-
-
     }
-
-    //弹出设置密码对话框  本方法需要完成“手机防盗板块”之后才能使用
-    private void showSetUpPswdDialog() {
-     final SetUpPasswordDialog setUpPasswordDialog = new SetUpPasswordDialog(HomeActivity.this
-     );
-        setUpPasswordDialog
-
-                .setCallBack(new SetupPasswordDialog.MyCallBack(){
+    /**
+     *弹出设置密码对话框  本方法需要完成“手机防盗模块才能启用”
+     */
+    private void showSetUpPwdDialog(){
+        final SetUpPasswordDialog setupPasswordDialog = new SetUpPasswordDialog(
+                HomeActivity.this);
+        setupPasswordDialog
+                .setCallBack(new SetUpPasswordDialog.MyCallBack(){
 
                     @Override
                     public void ok() {
@@ -124,7 +104,7 @@ public class HomeActivity extends AppCompatActivity {
                         }
                     }
 
-
+                    @Override
                     public void cancel() {
                         setupPasswordDialog.dismiss();
                     }
@@ -140,7 +120,7 @@ public class HomeActivity extends AppCompatActivity {
         final String password = getPassword();
         final InterPasswordDialog interPasswordDialog = new InterPasswordDialog(
                 HomeActivity.this);
-        interPasswordDialog.setCallBack(new InterPasswordDialog.MyCallBack() {
+        interPasswordDialog.setCallBack(new InterPasswordDialog.MyCallBack(){
             @Override
             public void confirm() {
                 if (TextUtils.isEmpty(interPasswordDialog.getPassword())){
@@ -159,7 +139,7 @@ public class HomeActivity extends AppCompatActivity {
             }
 
             @Override
-            public void cancel() {
+            public void cancle() {
                 interPasswordDialog.dismiss();
             }
         });
@@ -207,22 +187,3 @@ public class HomeActivity extends AppCompatActivity {
 
 
 }
-
- /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
-
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-@Override
-public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-        .setAction("Action", null).show();
-        }
-        });
-        }
-
-        }*/
-
-
-
-

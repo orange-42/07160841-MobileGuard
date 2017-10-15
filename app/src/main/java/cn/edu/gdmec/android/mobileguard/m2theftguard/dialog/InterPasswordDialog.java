@@ -21,7 +21,7 @@ public class InterPasswordDialog extends Dialog implements View.OnClickListener 
     private EditText mInterET;
     private Button mOKBtn;
     private Button mCancleBtn;
-    private SetUpPasswordDialog.MyCallBack myCallBack;
+    private MyCallBack myCallBack;
     private Context context;
     public InterPasswordDialog(@NonNull Context context) {
         super(context, R.style.dialog_custom);
@@ -59,14 +59,14 @@ switch (view.getId()){
         myCallBack.confirm();
         break;
     case R.id.btn_dismiss:
-        myCallBack.cancel();
+        myCallBack.cancle();
         break;
 }
     }
     public String getPassword(){
         return mInterET.getText().toString();
     }
-    public void setCallBack(SetUpPasswordDialog.MyCallBack myCallBack){
+    public void setCallBack(MyCallBack myCallBack){
         this.myCallBack = myCallBack;
     }
     public interface MyCallBack{
