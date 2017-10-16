@@ -123,7 +123,7 @@ private void downloadNewApk(String apkurl){
                     handler.sendEmptyMessage(MESSAGE_SHOW_DIALOG);
                     System.out.println(versionEntity.description);
                     downloadutils = new DownLoadUtils();
-                    DownLoadUtils.downloadApk(versionEntity.apkurl,"mobileguard",context);
+                    //DownLoadUtils.downloadApk(versionEntity.apkurl,"mobileguard",context);
 
                 }
 
