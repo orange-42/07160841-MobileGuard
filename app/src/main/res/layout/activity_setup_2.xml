@@ -56,7 +56,9 @@
                 android:lineSpacingMultiplier="1.5"
                 android:text="绑定SIM卡后，当再次重启手机是，若SIM卡信息发生变化，手机 卫士会自动发送报警信息给安全手机"
                 android:textColor="@color/purple"
-                android:textScaleX="1.1"/>
+                android:textScaleX="1.1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout

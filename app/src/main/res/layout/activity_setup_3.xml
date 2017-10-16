@@ -14,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:background="@drawable/circle_purple">
+            android:background="@color/purple">
             <ImageView
                 android:id="@+id/imgv"
                 android:layout_width="80dp"

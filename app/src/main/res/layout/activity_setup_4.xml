@@ -46,7 +46,9 @@
                 android:layout_marginLeft="10dp"
                 android:drawableLeft="@drawable/security_phone"
                 android:drawablePadding="10dp"
-                android:textColor="@color/purple"/>
+                android:textColor="@color/purple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <ToggleButton
                 android:id="@+id/togglebtn_securityfunction"
