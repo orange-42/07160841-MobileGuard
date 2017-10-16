@@ -12,7 +12,10 @@
         android:layout_height="50dp">
 
         <TextView
+
             style="@style/textview16sp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -22,6 +25,8 @@
         <TextView
             android:id="@+id/tv_safephone"
             style="@style/textview16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
@@ -40,6 +45,8 @@
         <TextView
             android:id="@+id/tv_lostfind_protectstauts"
             style="@style/textview16sp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -49,6 +56,7 @@
         <ToggleButton
             android:id="@+id/togglebtn_lostfind"
             android:layout_width="70dp"
+
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -61,6 +69,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1.0px"
+
         android:background="#10000000"/>
 
     <RelativeLayout
@@ -70,6 +79,8 @@
 
         <TextView
             style="@style/textview16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -113,13 +124,18 @@
             android:layout_marginTop="15dp">
 
             <TextView
+                android:layout_centerVertical="true"
                 style="@style/textview16sp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
                 android:text="#*alarm*#"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:textColor="@color/purple"/>
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/textview16sp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
@@ -136,6 +152,9 @@
             android:layout_marginTop="15dp">
 
             <TextView
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 style="@style/textview16sp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
@@ -143,6 +162,8 @@
                 android:textColor="@color/purple"/>
 
             <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 style="@style/textview16sp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
@@ -160,8 +181,11 @@
 
             <TextView
                 style="@style/textview16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
                 android:text="#*lockScreen*#"
                 android:textColor="@color/purple"/>
 
@@ -173,6 +197,8 @@
                 android:drawableLeft="@drawable/lock_screen_icon_small"
                 android:drawablePadding="5dp"
                 android:text="远程锁屏"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:textColor="@color/purple"/>
         </RelativeLayout>
 
@@ -182,7 +208,10 @@
             android:layout_marginTop="15dp">
 
             <TextView
+                android:layout_centerVertical="true"
                 style="@style/textview16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
                 android:text="#*wipedata*#"
@@ -190,6 +219,8 @@
 
             <TextView
                 style="@style/textview16sp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
