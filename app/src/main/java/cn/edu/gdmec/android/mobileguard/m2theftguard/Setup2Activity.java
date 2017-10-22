@@ -37,7 +37,7 @@ public class Setup2Activity extends BaseSetUpActivity implements View.OnClickLis
     }
     private boolean isBind(){
         //sp是父类BaseSetupActivity的属性，是SharePreference，按ctrl+鼠标左键就能跳转到声明的位置
-        String simString = sp.getString("sim","999");
+        String simString = sp.getString("sim","null");
         if(TextUtils.isEmpty(simString)){
             return false;
         }
