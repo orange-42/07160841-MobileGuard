@@ -42,13 +42,13 @@
             <TextView
                 android:id="@+id/tv_setup4_status"
                 style="@style/textview16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:drawableLeft="@drawable/security_phone"
                 android:drawablePadding="10dp"
-                android:textColor="@color/purple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textColor="@color/purple" />
 
             <ToggleButton
                 android:id="@+id/togglebtn_securityfunction"
@@ -59,7 +59,7 @@
                 android:layout_marginRight="27dp"
                 android:background="@drawable/toggle_btn_bg_selector"
                 android:textOff=""
-                android:textOn=""/>
+                android:textOn="" />
 
         </RelativeLayout>
 
