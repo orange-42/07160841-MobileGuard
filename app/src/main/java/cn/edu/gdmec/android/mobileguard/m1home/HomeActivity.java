@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     private SharedPreferences msharedPreferences;
     //设备管理员
     private DevicePolicyManager policyManager;
-    //申请权限
+    //申请权限....
     private ComponentName componentName;
 
     @Override
