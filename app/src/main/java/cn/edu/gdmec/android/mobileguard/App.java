@@ -34,7 +34,7 @@ public class App extends Application{
             //为了测试在手机序列号上data已模拟SIM卡被变更的情况
             String realism = tm.getSimSerialNumber();
             //因为虚拟机无法变更sim卡，所以使用虚拟机要有此代，真机测试要注释这段代码。
-           // realism="999";
+            //realism="999";
             if(bindsim.equals(realism)){
                 Log.i("","sim卡未发生变化，还是您的手机");
             }else {
