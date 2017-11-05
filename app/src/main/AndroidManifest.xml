@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.edu.gdmec.android.mobileguard">
-
+    <user-permission android:name="android.permission.CALL_PHONE"/>
+    <user-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permisson.WRITE_EXTERNAL_STOGAGE" />
@@ -37,6 +39,8 @@
         <activity android:name=".m2theftguard.Setup2Activity" />
         <activity android:name=".m2theftguard.Setup3Activity" />
         <activity android:name=".m2theftguard.Setup4Activity" />
+        <activity android:name=".m3communicationguard.AddBlackNumberActivity"/>
+        <activity android:name=".m3communicationguard.SecurityPhoneActivity"/>
         <receiver
             android:name=".m2theftguard.receiver.BootCompleteReceiver"
             android:enabled="true"
@@ -70,6 +74,22 @@
         </intent-filter>
 
             </receiver>
+        <receiver android:name=".m3communicationguard.receiver.InterceptCallReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".m3communicationguard.receiver.InterceptSmsReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephoney.SMS_RECEIVERD"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
