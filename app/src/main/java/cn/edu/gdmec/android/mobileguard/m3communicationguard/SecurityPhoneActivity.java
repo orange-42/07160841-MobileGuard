@@ -44,8 +44,11 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
             //数据中含有黑名单数据
             mHaveBlackNumber.setVisibility(View.GONE);
             mNoBlackNumber.setVisibility(View.VISIBLE);
+        }else if(totalNumber>0){
+            mHaveBlackNumber.setVisibility(View.VISIBLE);
+            mNoBlackNumber.setVisibility(View.GONE);
             pagenumber = 0;
-            if(pageBlakNumber.size()>0){
+        if(pageBlakNumber.size()>0){
                 pageBlakNumber.clear();
             }
             pageBlakNumber
@@ -147,8 +150,6 @@ protected  void onCreate(Bundle savedInstanceState) {
             mNoBlackNumber.setVisibility(View.GONE);
         }else {
             mHaveBlackNumber.setVisibility(View.GONE);
-            mNoBlackNumber.setVisibility(View.VISIBLE);
-
             mNoBlackNumber.setVisibility(View.VISIBLE);
         }
         pagenumber = 0;
