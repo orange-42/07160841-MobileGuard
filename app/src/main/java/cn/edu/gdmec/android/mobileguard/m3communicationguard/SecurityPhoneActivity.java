@@ -118,7 +118,7 @@ private void initView(){
 @Override
 protected  void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    getSupportActionBar().hide();
+    getSupportActionBar().hide();//隐藏标题栏
     setContentView(R.layout.activity_security_phone);
     initView();
     fillData();
