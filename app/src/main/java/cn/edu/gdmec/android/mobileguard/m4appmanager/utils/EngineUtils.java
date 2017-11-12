@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
@@ -51,11 +52,15 @@ public class EngineUtils {
         context.startActivity(intent);
     }
     public static void uninstallApplication(Context context,AppInfo appInfo){
+
         if(appInfo.isUserApp){
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_DELETE);
-            intent.setData(Uri.parse("package" +appInfo.packageName));
+
+            intent.setData(Uri.parse("package:" +appInfo.packageName));
+
             context.startActivity(intent);
+
         }else{
             Toast.makeText(context,"系统应用无法卸载",Toast.LENGTH_LONG).show();
         }

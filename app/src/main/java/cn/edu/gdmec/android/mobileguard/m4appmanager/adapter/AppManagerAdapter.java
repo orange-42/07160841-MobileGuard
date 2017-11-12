@@ -3,6 +3,7 @@ package cn.edu.gdmec.android.mobileguard.m4appmanager.adapter;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -162,14 +163,17 @@ public class AppManagerAdapter extends BaseAdapter {
                    break;
                case R.id.tv_setting_app:
                    EngineUtils.SettingAppDetail(context,appInfo);
+                   break;
                case R.id.tv_about_app:
                    EngineUtils.AboutApp(context,appInfo);
                    break;
                case R.id.tv_uninstall_app:
+
                    if(appInfo.packageName.equals(context.getPackageName())){
                        Toast.makeText(context,"您没有权限卸载应用！",Toast.LENGTH_SHORT).show();
                        return;
                    }
+
                    EngineUtils.uninstallApplication(context,appInfo);
                    break;
            }
