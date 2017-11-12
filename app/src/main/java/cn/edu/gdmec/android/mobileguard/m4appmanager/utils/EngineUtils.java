@@ -29,9 +29,10 @@ public class EngineUtils {
     public static void shareApplication(Context context,AppInfo appInfo){
         Intent intent =  new Intent("android.intent.action.SEND");
         intent.addCategory("android.intent.category.DEFAULT");
+        intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT,
                 "推荐您使用一款软件，名称叫："+appInfo.appName
-                + "下载路径：http://playgoogle.com/store/apps/details?od="
+                + "下载路径：http://play.google.com/store/apps/details?id="
                 +appInfo.packageName);
         context.startActivity(intent);
     }
