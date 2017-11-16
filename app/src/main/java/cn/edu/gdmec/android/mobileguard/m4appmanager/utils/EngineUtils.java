@@ -130,6 +130,7 @@ public class EngineUtils {
             }
 
             AlertDialog.Builder builder =new AlertDialog.Builder(context);
+            builder.setTitle("APP中的Activity如下：");
             builder.setMessage(appInfo.activityInfo);
             builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
                 @Override
