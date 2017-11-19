@@ -13,6 +13,7 @@ public class AppInfo {
     public String apkPath;
     public long appSize;
     public boolean isInRoom;
+    public String activityInfo;
     public boolean isUserApp;
     public boolean isSelected=false;
     public String getAppLocation(boolean isInRoom){
