@@ -3,12 +3,13 @@ package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
@@ -116,6 +117,32 @@ public class EngineUtils {
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public static void activityApp(Context context,AppInfo appInfo){
+        PackageManager pm = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = pm.getPackageInfo(appInfo.packageName,PackageManager.GET_ACTIVITIES);
+            ActivityInfo[] activityInfos = packageInfo.activities;
+            if(activityInfos!=null){
+                for (ActivityInfo info : activityInfos){
+                   appInfo.activityInfo = appInfo.activityInfo+info.name + "\n";
+                }
+            }
+
+            AlertDialog.Builder builder =new AlertDialog.Builder(context);
+            builder.setTitle("APP中的Activity如下：");
+            builder.setMessage(appInfo.activityInfo);
+            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.show();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 
