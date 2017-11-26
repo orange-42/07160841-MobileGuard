@@ -218,12 +218,17 @@ public class VersionUpdateUtils {
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
+
                 long ID = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                 if (ID == Id) {
                     Toast.makeText(context.getApplicationContext(), "下载编号:" + Id +"的"+filename+" 下载完成!", Toast.LENGTH_LONG).show();
                 }
+                /*if(intent.getAction().equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {
+
+                }*/
                 context.unregisterReceiver(broadcastReceiver);
                 downloadCallback.afterDownload(filename);
+
             }
         };
 

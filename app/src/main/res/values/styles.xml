@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="dialog_custom" parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
@@ -15,7 +16,7 @@
 
     </style>
 
-    <style name="textview16sp">
+    <style name="textview16sp" parent="wrapcontent">
         <item name="android:textSize">16sp</item>
         <item name="android:gravity">center_vertical</item>
     </style>
@@ -27,7 +28,7 @@
 
     <style name="textview14sp" parent="wrapcontent">
         <item name="android:textSize">14sp</item>
-         <item name="android:gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
     <!--软件模块用到的-->
     <style name="zero_widthwrapcontent">
@@ -35,14 +36,25 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
     </style>
+
     <style name="tvyellow14sp" parent="zero_widthwrapcontent">
         <item name="android:textSize">14sp</item>
         <item name="android:drawablePadding">3dp</item>
         <item name="android:gravity">center</item>
-        <item  name="android:textColor">@color/bright_yellow</item>
+        <item name="android:textColor">@color/bright_yellow</item>
     </style>
+
     <style name="textview12sp" parent="wrapcontent">
         <item name="android:textSize">12sp</item>
         <item name="android:gravity">center_vertical</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -34,7 +34,7 @@ public class BlackNumberOpenHelper extends SQLiteOpenHelper {
         "number varchar(20), " +
         "name varchar(255)," +
         "mode integer," +
-                "type varchar(255))");
+       "type varchar(255))");
 
     }
 
