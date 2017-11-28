@@ -60,19 +60,19 @@ public class ScanVirusAdapter extends BaseAdapter {
         ScanAppInfo scanAppInfo=mScanAppInfos.get(i);
         if(!scanAppInfo.isVirus) {
 
-            if (!scanAppInfo.isVirus) {
-                ///System.out.println(i+scanAppInfo.appName);
-                holder.mScanIconImgv.setBackgroundResource(R.drawable.blue_right_icon);
-                holder.mAppNameTV.setTextColor(context.getResources().getColor(R.color.black));
-                holder.mAppNameTV.setText(scanAppInfo.appName);
-            } else {
+
+            ///System.out.println(i+scanAppInfo.appName);
+            holder.mScanIconImgv.setBackgroundResource(R.drawable.blue_right_icon);
+            holder.mAppNameTV.setTextColor(context.getResources().getColor(R.color.black));
+            holder.mAppNameTV.setText(scanAppInfo.appName);
+        }else {
                 System.out.println(i + scanAppInfo.appName);
                 holder.mAppNameTV.setTextColor(context.getResources().getColor(R.color.bright_red));
                 holder.mAppNameTV.setText(scanAppInfo.appName + "(" + scanAppInfo.description + ")");
 
             }
 
-        }holder.mAppIconImgv.setImageDrawable(scanAppInfo.appicon);
+        holder.mAppIconImgv.setImageDrawable(scanAppInfo.appicon);
         return view;
     }
 }
