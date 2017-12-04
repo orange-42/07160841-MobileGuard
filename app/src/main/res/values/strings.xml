@@ -2,4 +2,6 @@
     <string name="app_name">MobileGuard</string>
     <string name="title_activity_cache_clear_list">CacheClearListActivity</string>
     <string name="title_activity_clean_cache">CleanCacheActivity</string>
+    <string name="_operatorset_string">"  仅一次简单设置，以后即可便捷矫正流量，
+        时刻保持与运营商保持精准同步。"</string>
 </resources>

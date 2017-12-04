@@ -112,5 +112,18 @@
         android:label="@string/title_activity_clean_cache"
         android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity android:name=".m8trafficmonitor.OperatorSetActivity"/>
+        <activity android:name=".m8trafficmonitor.TrafficMonitoringActivity"/>
+        <service android:name=".m8trafficmonitor.service.TrafficMonitoringService"
+            android:enabled="true"
+            android:exported="true"
+            android:persistent="true"/>
+        <receiver android:name=".m8trafficmonitor.receiver.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>
