@@ -13,15 +13,15 @@ import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m5virusscan.entity.ScanAppInfo;
 
 /**
- * Created by Mr.Zhang on 2017/11/13.
+ * Created by Administrator on 2017/11/16.
  */
 
 public class ScanVirusAdapter extends BaseAdapter {
     private List<ScanAppInfo> mScanAppInfos;
     private Context context;
-    public ScanVirusAdapter(List<ScanAppInfo> scanAppInfo,Context context) {
+    public ScanVirusAdapter(List<ScanAppInfo> scanAppInfos,Context context){
         super();
-        mScanAppInfos = scanAppInfo;
+        mScanAppInfos = scanAppInfos;
         this.context = context;
     }
     static class ViewHolder{
@@ -35,44 +35,39 @@ public class ScanVirusAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return mScanAppInfos.get(i);
+    public Object getItem(int position) {
+        return mScanAppInfos.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View view, ViewGroup parent) {
         ViewHolder holder;
-        if(view==null){
-            view = view.inflate(context, R.layout.item_list_applock,null);
+        if (view == null){
+            view = View.inflate(context, R.layout.item_list_applock,null);
             holder = new ViewHolder();
             holder.mAppIconImgv = (ImageView) view.findViewById(R.id.imgv_appicon);
             holder.mAppNameTV = (TextView) view.findViewById(R.id.tv_appname);
             holder.mScanIconImgv = (ImageView) view.findViewById(R.id.imgv_lock);
             view.setTag(holder);
-        }else {
+        }else{
             holder = (ViewHolder) view.getTag();
         }
-        ScanAppInfo scanAppInfo=mScanAppInfos.get(i);
-        if(!scanAppInfo.isVirus) {
-
-
-            ///System.out.println(i+scanAppInfo.appName);
-            holder.mScanIconImgv.setBackgroundResource(R.drawable.blue_right_icon);
+        ScanAppInfo scanAppinfo = mScanAppInfos.get(position);
+        if (!scanAppinfo.isVirus){
+            holder.mScanIconImgv.setImageResource(R.drawable.blue_right_icon);
             holder.mAppNameTV.setTextColor(context.getResources().getColor(R.color.black));
-            holder.mAppNameTV.setText(scanAppInfo.appName);
+            holder.mAppNameTV.setText(scanAppinfo.appName);
+
         }else {
-                System.out.println(i + scanAppInfo.appName);
-                holder.mAppNameTV.setTextColor(context.getResources().getColor(R.color.bright_red));
-                holder.mAppNameTV.setText(scanAppInfo.appName + "(" + scanAppInfo.description + ")");
-
-            }
-
-        holder.mAppIconImgv.setImageDrawable(scanAppInfo.appicon);
+            holder.mAppNameTV.setTextColor(context.getResources().getColor(R.color.bright_red));
+            holder.mAppNameTV.setText(scanAppinfo.appName+"("+scanAppinfo.description+")");
+        }
+        holder.mAppIconImgv.setImageDrawable(scanAppinfo.appicon);
         return view;
     }
 }

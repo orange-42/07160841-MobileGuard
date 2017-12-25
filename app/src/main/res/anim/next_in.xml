@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
-    <rotate
-        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
-        android:fromDegrees="300"
-        android:toDegrees="-360"
-        android:pivotX="10%"
-        android:pivotY="100%"
-        android:duration="2333" />
-</set>
+<!--显示下一步，下一个页面进来的效果-->
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="+100%p"
+    android:toXDelta="0"
+    android:fromYDelta="+100%p"
+    android:toYDelta="0"
+    android:duration="500"
+    android:repeatCount="0"
+    >
+</translate>
